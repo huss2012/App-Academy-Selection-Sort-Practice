@@ -3,20 +3,31 @@
 function selectionSort(arr) {
 
   // Copy the original array
-
   // Create an array to store the sorted values
-
   // While the array is not empty...
-
     // Do not move this console.log
-    console.log(sorted.join(","));
-
     // Find the index of the minimum value in the unsorted half
-
     // Save and remove the value at the min index
+  // Add the min value to the end of the sorted array
+  let newArr = [...arr];
+  let sorted = [];
 
-    // Add the min value to the end of the sorted array
+  while (newArr.length) {
+    console.log(sorted.join(","));
+    let minVal = newArr[0];
+    let minIndex = 0;
+    for (let i = 1; i < newArr.length; i++){
+      if (newArr[i] < minVal) {
+        minVal = newArr[i];
+        minIndex = i;
+      }
+    }
+    newArr.splice(minIndex, 1);
+    sorted.push(minVal);
 
+  }
+  //console.log(sorted);
+  return sorted;
 }
 
 
