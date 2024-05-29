@@ -38,8 +38,8 @@ function selectionSortInPlace(arr) {
 
   // Repeat while the unsorted half is not empty:
 
-    // Do not move this console.log
-    console.log(arr.join(","));
+    // // Do not move this console.log
+    // console.log(arr.join(","));
 
     // Find the index of the minimum value in the unsorted half
 
@@ -49,8 +49,37 @@ function selectionSortInPlace(arr) {
 
     // Put the min value at the divider
 
-    // Increment the divider and repeat
+  // Increment the divider and repeat
+  let divider = 0;
 
+  while (divider !== arr.length) {
+    // Do not move this console.log
+    console.log(arr.join(","));
+
+    let minVal = arr[divider];
+    let minIndex = divider;
+
+    for (let i = arr.length - 1; i >= divider; i--){
+      if (arr[i] < minVal) {
+        minVal = arr[i];
+        minIndex = i;
+      }
+    }
+    // for (let i = divider; i < arr.length; i++){
+    //   if (arr[i] < minVal) {
+    //     minVal = arr[i];
+    //     minIndex = i;
+    //   }
+    // }
+    for (let i = minIndex; i > divider; i--){
+      arr[i] = arr[i - 1];
+    }
+
+    arr[divider] = minVal;
+
+    divider++;
+  }
+  return arr;
 }
 
 
